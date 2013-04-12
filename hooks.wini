@@ -71,8 +71,8 @@ match := True
 #startup := Shell 
 
 # You can add startup programs here if you like.
-startup := Shell "DISPLAY=:0.0 ~/.scripts/dynamic-script.sh"
-
+#startup := Shell "DISPLAY=:0.0 ~/.scripts/dynamic-script.sh"
+#startup := Shell "chromium %U --audio-buffer-size=4096"
 # You can add more by just adding another definition of "startup".
 #startup := Shell "gkrellm"
 
@@ -100,7 +100,7 @@ managed := Float ":client:"
 match := True
 
 focused := SetOpacity ":client:" 1.0
-unfocused := SetOpacity ":client:" 0.90
+unfocused := SetOpacity ":client:" 0.87
 
 [StupidKDE]
 # This hook is to make sure the KDE splash window isn't decorated on startup.
@@ -122,22 +122,24 @@ managed := WorkspaceGreedyWithClient "www" ":client:"
 match := MatchClientClass ":client:" "xterm"
 match := MatchClientClass ":client:" "urxvt" 
 conjunction := no
+managed := AddWorkspace "trm"
 managed := WorkspaceGreedyWithClient "trm" ":client:"
+managed := FrameNada ":client:"
 
 [mousepad]
 match := MatchClientClass ":client:" "mousepad"
 managed := AddWorkspace "dev"
 managed := WorkspaceGreedyWithClient "dev" ":client:"
 
-[weechat-curses]
-match := MatchClientClass ":client:" "weechat-curses"
-managed := AddWorkspace "irc"
-managed := WorkspaceGreedyWithClient "irc" ":client:"
+#[weechat-curses]
+#match := MatchClientName ":client:" "weechat-curses"
+#managed := AddWorkspace "irc"
+#managed := WorkspaceGreedyWithClient "irc" ":client:"
 
-[ncmpcpp]
-match := MatchClientClass ":client:" "ncmpcpp"
-managed := AddWorkspace "mda"
-managed := WorkspaceGreedyWithClient "mda" ":client:"
+#[ncmpcpp]
+#match := MatchClientName ":client:" "ncmpcpp"
+#managed := AddWorkspace "mda"
+#managed := WorkspaceGreedyWithClient "mda" ":client:"
 
 [thunar]
 match := MatchClientClass ":client:" "thunar"
